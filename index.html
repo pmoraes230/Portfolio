@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Caveira futurista</title>
+    <link rel="stylesheet" href="/src/style/style.css">
+    <script defer src="scripts.js"></script>
+</head>
+
+<body class="body">
+    <header class="header">
+        <div class="logo">
+            <h1>Olá ao meu <span class="highlight">Portfólio</span></h1>
+        </div>
+        <nav class="navbar">
+            <ul class="navbar-list">
+                <li><a href="#sobre" class="navbar-link">Sobre</a></li>
+                <li><a href="#projetos" class="navbar-link">Projetos</a></li>
+                <li><a href="#contato" class="navbar-link">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Bem-vindo ao Futuro</h1>
+            <h2 class="hero-subtitle">
+                <span class="typed-text"></span>
+                <span class="cursor">|</span>
+            </h2>
+        </div>
+    </section>    
+
+    <section class="about" id="sobre">
+        <h2 class="section-title">Sobre Mim</h2>
+        <p class="about-text">
+            Sou um desenvolvedor web com paixão por criar experiências digitais únicas e futuristas.
+            Trabalhando com as tecnologias mais avançadas, estou sempre pronto para o próximo desafio.
+        </p>
+    </section>
+
+    <section class="projects" id="projetos">
+        <h2 class="section-title">Projetos Recentes</h2>
+        <div class="project-grid">
+
+            <!-- Projeto 1 -->
+            <div class="project-card">
+                <img src="./src/img/pokedex.png" alt="Imagem do Projeto 1" class="project-image">
+                <h3 class="project-title">
+                    <a href="https://pmoraes230.github.io/Pokedex" target="_blank">Projeto 1</a>
+                </h3>
+                <p class="project-description">project of a pokedex done in class on the DIO platform (digital
+                    innovation one) in the module Mastering the HTTP Protocol and Integrating with the PokeAPI.</p>
+            </div>
+
+            <!-- Projeto 2 -->
+            <div class="project-card">
+                <img src="./src/img/stopwatch.png" alt="Imagem do Projeto 2" class="project-image">
+                <h3 class="project-title">
+                    <a href="https://pmoraes230.github.io/StopWatch" target="_blank">Projeto 2</a>
+                </h3>
+                <p class="project-description">Cronômetro web.</p>
+            </div>
+
+            <!-- Projeto 3 -->
+            <div class="project-card">
+                <img src="./src/img/Nlw eSports.png" alt="Imagem do Projeto 3" class="project-image">
+                <h3 class="project-title">
+                    <a href="https://pmoraes230.github.io/NLW-eSports" target="_blank">Projeto 3</a>
+                </h3>
+                <p class="project-description">Um treinamento intesivo para web de autoria da Rocketseat.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="contact" id="contato">
+        <h2 class="section-title">Entre em Contato</h2>
+        <form class="contact-form">
+            <input type="text" class="form-input" placeholder="Seu Nome">
+            <input type="email" class="form-input" placeholder="Seu Email">
+            <textarea class="form-textarea" placeholder="Sua Mensagem"></textarea>
+            <button type="submit" class="btn form-btn">Enviar</button>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <p class="footer-text">© 2024 MeuPortfólio. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="./src/scripts/scroll.js"></script>
+    <script src="/src/scripts/letter.js"></script>
+</body>
+
+</html>
