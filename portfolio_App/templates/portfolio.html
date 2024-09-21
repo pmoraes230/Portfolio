@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -6,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Caveira futurista</title>
-    <link rel="stylesheet" href="/src/style/style.css">
-    <script defer src="scripts.js"></script>
+    <link rel="stylesheet" href="{% static "src/style/style.css" %}">
+    <link rel="shortcut icon" href="{% static "src/img/icon.svg" %}" type="image/x-icon">
 </head>
 
 <body class="body">
@@ -45,44 +47,26 @@
     <section class="projects" id="projetos">
         <h2 class="section-title">Projetos Recentes</h2>
         <div class="project-grid">
-
-            <!-- Projeto 1 -->
+    
+            {% for portfolio in portfolios %}
             <div class="project-card">
-                <img src="./src/img/pokedex.png" alt="Imagem do Projeto 1" class="project-image">
+                <img src="{{ portfolio.image.url }}" alt="Imagem do {{ portfolio.title }}" class="project-image">
                 <h3 class="project-title">
-                    <a href="https://pmoraes230.github.io/Pokedex" target="_blank">Projeto 1</a>
+                    <a href="{{ portfolio.url }}" target="_blank">{{ portfolio.title }}</a>
                 </h3>
-                <p class="project-description">project of a pokedex done in class on the DIO platform (digital
-                    innovation one) in the module Mastering the HTTP Protocol and Integrating with the PokeAPI.</p>
+                <p class="project-description">{{ portfolio.description }}</p>
             </div>
-
-            <!-- Projeto 2 -->
-            <div class="project-card">
-                <img src="./src/img/stopwatch.png" alt="Imagem do Projeto 2" class="project-image">
-                <h3 class="project-title">
-                    <a href="https://pmoraes230.github.io/StopWatch" target="_blank">Projeto 2</a>
-                </h3>
-                <p class="project-description">Cronômetro web.</p>
-            </div>
-
-            <!-- Projeto 3 -->
-            <div class="project-card">
-                <img src="./src/img/Nlw eSports.png" alt="Imagem do Projeto 3" class="project-image">
-                <h3 class="project-title">
-                    <a href="https://pmoraes230.github.io/NLW-eSports" target="_blank">Projeto 3</a>
-                </h3>
-                <p class="project-description">Um treinamento intesivo para web de autoria da Rocketseat.</p>
-            </div>
-
+            {% endfor %}
         </div>
-    </section>
+    </section>     
 
     <section class="contact" id="contato">
         <h2 class="section-title">Entre em Contato</h2>
-        <form class="contact-form">
-            <input type="text" class="form-input" placeholder="Seu Nome">
-            <input type="email" class="form-input" placeholder="Seu Email">
-            <textarea class="form-textarea" placeholder="Sua Mensagem"></textarea>
+        <form class="contact-form" method="POST"> 
+            {% csrf_token %}
+            <input type="text" name="nome" class="form-input" placeholder="Seu Nome" required>
+            <input type="email" name="email" class="form-input" placeholder="Seu Email" required>
+            <textarea name="mensagem" class="form-textarea" placeholder="Sua Mensagem" required></textarea>
             <button type="submit" class="btn form-btn">Enviar</button>
         </form>
     </section>
@@ -91,8 +75,8 @@
         <p class="footer-text">© 2024 MeuPortfólio. Todos os direitos reservados.</p>
     </footer>
 
-    <script src="./src/scripts/scroll.js"></script>
-    <script src="/src/scripts/letter.js"></script>
+    <script src="{% static "/src/scripts/letter.js" %}"></script>
+    <script src="{% static "/src/scripts/scroll.js" %}"></script>
 </body>
 
 </html>
