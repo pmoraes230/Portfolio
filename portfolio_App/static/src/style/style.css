@@ -12,6 +12,40 @@ body.body {
     line-height: 1.6;
 }
 
+.navbar {
+    display: flex;
+    align-items: center;
+    position: relative; /* Para que o menu se posicione corretamente */
+}
+
+.hamburger {
+    display: none; /* Esconde o botão inicialmente */
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #ccc; /* Cor das barras */
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+.navbar-list {
+    display: flex; /* Por padrão, o menu fica horizontal */
+    list-style: none;
+}
+
+.navbar-list li {
+    margin: 0 15px;
+}
+
+.navbar-link {
+    text-decoration: none;
+    color: #ccc; /* Cor do link */
+}
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -206,4 +240,34 @@ body.body {
 
 .footer-text {
     color: #c0c0c0;
+}
+
+
+/* Estilos para telas pequenas */
+@media (max-width: 768px) {
+    .navbar-list {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: 0;
+        background-color: #121212;
+        width: 29vw;
+        height: 100vh;
+        padding-top: 41px;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .navbar-list a {
+        margin-top: 50px;
+    }
+
+    .navbar-list.active {
+        display: flex; /* Mostra a lista quando ativa */
+    }
+
+    .hamburger {
+        display: flex; /* Mostra o botão hamburger */
+    }
 }

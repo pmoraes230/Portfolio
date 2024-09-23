@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from .models import Portfolio, speak_me
 
@@ -17,3 +18,8 @@ def main(request):
 
     portfolio = Portfolio.objects.all()
     return render(request, 'portfolio.html', {'portfolios': portfolio})
+
+def verifica_email(request):
+    email = request.GET.get('email', None)
+    exists = speak_me.objects.filter(email=email).exists()
+    return JsonResponse({'exists': exists})

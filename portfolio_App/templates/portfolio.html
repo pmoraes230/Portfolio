@@ -18,7 +18,12 @@
             <h1>Olá ao meu <span class="highlight">Portfólio</span></h1>
         </div>
         <nav class="navbar">
-            <ul class="navbar-list">
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar-list" id="navbar-list">
                 <li><a href="#sobre" class="navbar-link">Sobre</a></li>
                 <li><a href="#projetos" class="navbar-link">Projetos</a></li>
                 <li><a href="#contato" class="navbar-link">Contato</a></li>
@@ -62,10 +67,11 @@
 
     <section class="contact" id="contato">
         <h2 class="section-title">Entre em Contato</h2>
-        <form class="contact-form" method="POST"> 
+        <form class="contact-form" method="POST" id="contactForm"> 
             {% csrf_token %}
             <input type="text" name="nome" class="form-input" placeholder="Seu Nome" required>
-            <input type="email" name="email" class="form-input" placeholder="Seu Email" required>
+            <input type="email" name="email" class="form-input" id="emailInput" placeholder="Seu Email" required>
+            <span id="emailError" style="color: red; display: none;">Este e-mail já está cadastrado.</span>
             <textarea name="mensagem" class="form-textarea" placeholder="Sua Mensagem" required></textarea>
             <button type="submit" class="btn form-btn">Enviar</button>
         </form>
@@ -77,6 +83,7 @@
 
     <script src="{% static "/src/scripts/letter.js" %}"></script>
     <script src="{% static "/src/scripts/scroll.js" %}"></script>
+    <script src="{% static "/src/scripts/hamburguer.js" %}"></script>
 </body>
 
 </html>
