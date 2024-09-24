@@ -6,6 +6,10 @@
     font-family: 'Arial', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body.body {
     background-color: #0a0a0a;
     color: #ffffff;
@@ -38,7 +42,7 @@ body.body {
 }
 
 .navbar-list li {
-    margin: 0 15px;
+    margin-left: 2rem;
 }
 
 .navbar-link {
@@ -71,7 +75,7 @@ body.body {
 .navbar-link {
     color: #ffffff;
     text-decoration: none;
-    margin-left: 20px;
+    /* margin-left: 20px; */
     transition: color 0.3s;
 }
 
@@ -245,6 +249,11 @@ body.body {
 
 /* Estilos para telas pequenas */
 @media (max-width: 768px) {
+    .header {
+        position: fixed;
+        width: 100vw;
+    }
+
     .navbar-list {
         display: none;
         flex-direction: column;
@@ -252,19 +261,19 @@ body.body {
         top: 0;
         right: 0;
         background-color: #121212;
-        width: 29vw;
+        width: 7rem;
         height: 100vh;
         padding-top: 41px;
         box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
         z-index: 1;
-    }
-
-    .navbar-list a {
-        margin-top: 50px;
+        gap: 55px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
     }
 
     .navbar-list.active {
         display: flex; /* Mostra a lista quando ativa */
+        transform: translateX(0);
     }
 
     .hamburger {

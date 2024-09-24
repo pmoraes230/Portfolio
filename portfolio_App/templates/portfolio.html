@@ -52,7 +52,6 @@
     <section class="projects" id="projetos">
         <h2 class="section-title">Projetos Recentes</h2>
         <div class="project-grid">
-    
             {% for portfolio in portfolios %}
             <div class="project-card">
                 <img src="{{ portfolio.image.url }}" alt="Imagem do {{ portfolio.title }}" class="project-image">
@@ -62,7 +61,6 @@
                 <p class="project-description">{{ portfolio.description }}</p>
             </div>
             {% endfor %}
-        </div>
     </section>     
 
     <section class="contact" id="contato">
@@ -84,6 +82,7 @@
     <script src="{% static "/src/scripts/letter.js" %}"></script>
     <script src="{% static "/src/scripts/scroll.js" %}"></script>
     <script src="{% static "/src/scripts/hamburguer.js" %}"></script>
+    <script src="{% static "/src/scripts/smooth.js" %}"></script>
 </body>
 
 </html>

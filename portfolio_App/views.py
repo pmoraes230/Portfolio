@@ -17,9 +17,4 @@ def main(request):
         return redirect('success')  
 
     portfolio = Portfolio.objects.all()
-    return render(request, 'portfolio.html', {'portfolios': portfolio})
-
-def verifica_email(request):
-    email = request.GET.get('email', None)
-    exists = speak_me.objects.filter(email=email).exists()
-    return JsonResponse({'exists': exists})
+    return render(request, 'portfolio.html', {'portfolios': portfolio}) 
