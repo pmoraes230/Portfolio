@@ -28,5 +28,5 @@ def send_email_on_create(sender, instance, created, **kwargs):
     if created:  # Verifica se é uma criação, não apenas uma atualização
         subject = 'Nova mensagem recebida'
         message = f'Nome: {instance.name}\nEmail: {instance.email}\nMensagem: {instance.messege}'
-        recipient_list = ['pmoraes230nascimento@gmail.com']  # Substitua pelo e-mail do destinatário
+        recipient_list = ['{instance.email}']  # Substitua pelo e-mail do destinatário
         send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, recipient_list)
