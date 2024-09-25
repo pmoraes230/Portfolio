@@ -1,6 +1,8 @@
 from pathlib import Path
 import os
 from decouple import config
+from google.oauth2 import service_account
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -16,9 +18,6 @@ SECRET_KEY = 'django-insecure-%=c_3wg#34phbn73!ll5mu*)1y42ffmz^^rj^xu4(=v$&h7e-c
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # Application definition
 
@@ -130,3 +129,19 @@ else:
     EMAIL_PORT = config('EMAIL_PORT')
     EMAIL_HOST = config('EMAIL_HOST')
     DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+# GOOGLE_CLOUD
+env = environ.Env()
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+# CARREGAR AS CREDENCIAIS
+GS_BUCKET_NAME = env('GS_BUCKET_NAME')
+GS_BUCKET_ID = env('GS_BUCKET_ID')
+GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
+    env('GS_CREDENTIALS_PATH')
+)
+
+# configuração de armazenamento e mídia
+DEFAULT_FILE_STORAGE = 'storage.backends.gcloud.GoogleCloudStorage'
+MEDIA_URL = f'https://storage.googleapis.com/{GS_BUCKET_NAME}/'
+MEDIA_ROOT = 'media/'
