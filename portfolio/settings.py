@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'portfolio_App',
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -136,12 +137,12 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # CARREGAR AS CREDENCIAIS
 GS_BUCKET_NAME = env('GS_BUCKET_NAME')
-GS_BUCKET_ID = env('GS_BUCKET_ID')
+GS_PROJECT_ID = env('GS_PROJECT_ID')
 GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
     env('GS_CREDENTIALS_PATH')
 )
 
 # configuração de armazenamento e mídia
-DEFAULT_FILE_STORAGE = 'storage.backends.gcloud.GoogleCloudStorage'
+DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 MEDIA_URL = f'https://storage.googleapis.com/{GS_BUCKET_NAME}/'
 MEDIA_ROOT = 'media/'
